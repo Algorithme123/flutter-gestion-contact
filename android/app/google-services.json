@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "420724759931",
+    "project_id": "gestion-user-contact",
+    "storage_bucket": "gestion-user-contact.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:420724759931:android:6714b917781dd8adde71de",
+        "android_client_info": {
+          "package_name": "com.danie.contact.gestion_contact"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "420724759931-tlo99t4sd9ci7ingv0oit51opqr1a0v2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSdtF1nmah9LoonSFXMIzflSKzNr91rec"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "420724759931-tlo99t4sd9ci7ingv0oit51opqr1a0v2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
