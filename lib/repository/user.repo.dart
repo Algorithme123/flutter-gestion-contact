@@ -9,3 +9,4 @@ Future addUser(User user) async{
   user.id = docUser.id;
   await docUser.set(user.toJson());
 }
+

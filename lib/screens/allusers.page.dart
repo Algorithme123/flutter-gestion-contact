@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:gestion_contact/model/user.model.dart';
+import 'package:gestion_contact/screens/widgets/users.list.dart';
 
 class AllUsers extends StatefulWidget {
   const AllUsers({Key? key}) : super(key: key);
@@ -27,23 +28,7 @@ class _AllUsersState extends State<AllUsers> {
             allUsers = snp.data!.docs
                 .map((doc) => User.fromJson(doc.data() as Map<String,dynamic>)).toList();
 
-            return ListView.builder(
-              itemCount: allUsers.length,
-                itemBuilder: (context,index){
-                return Card(
-                  child: ListTile(
-                    leading: CircleAvatar(
-                      backgroundColor: Colors.amber,
-                      //pour afficher les deux premier caractere
-                      child: Text(allUsers[index].name.substring(0,2).toUpperCase(),style:  TextStyle(fontWeight: FontWeight.bold ) ,),
-                    ),
-                      title: Text(allUsers[index].name, style: TextStyle(fontSize: 22),),
-                    subtitle:  Text(allUsers[index].age.toString()),
-
-                  ),
-                );
-                }
-                  );
+            return  ListUsers(users: allUsers,);
           }else{
             return Center(child: CircularProgressIndicator());
 
