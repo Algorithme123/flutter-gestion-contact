@@ -5,7 +5,7 @@ class User{
   int age;
 
 
-  User({required this.id, required this.name, required this.age});
+  User({ this.id='', required this.name, required this.age});
 
   //Convertir une collection en Objet
   factory User.fromJson(Map<String,dynamic> json){
