@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gestion_contact/screens/allusers.page.dart';
 import 'package:gestion_contact/screens/user.add.dart';
 
 class ControlePage extends StatelessWidget {
@@ -44,9 +45,11 @@ class ControlePage extends StatelessWidget {
 
             children: [
               AddUserPage(),
-              Center(
-                child: Text("Page2"),
-              ),
+              // Center(
+              //   // child: Text("Page2"),
+              //
+              // ),
+            AllUsers(),
               Center(
                 child: Text("Page3"),
               ),
