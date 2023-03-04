@@ -9,4 +9,9 @@ Future addUser(User user) async{
   user.id = docUser.id;
   await docUser.set(user.toJson());
 }
+//Methode pour la mis ajour
 
+Future updateUser(User user)async{
+  final docUser = FirebaseFirestore.instance.collection('users').doc(user.id);
+  await docUser.update(user.toJson());
+}

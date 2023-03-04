@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gestion_contact/repository/user.repo.dart';
 
 import '../../model/user.model.dart';
 
@@ -15,14 +16,18 @@ class ListUsers extends StatefulWidget {
 
 class _ListUsersState extends State<ListUsers> {
 
-
+  get allUsers => widget.users;
   final _ctrupdatename=TextEditingController();
   final _ctrupdateage=TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
 
-    final allUsers = widget.users;
+
+
+
+
     return  ListView.builder(
         itemCount: allUsers.length,
         itemBuilder: (context,index){
@@ -53,22 +58,24 @@ class _ListUsersState extends State<ListUsers> {
                                       style: TextStyle(fontSize: 22, color:  Colors.blue,),
                                       decoration: InputDecoration(
                                         labelText: "Nom",
-                                        border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(40)))
-                                      ),
+                                        border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(40)))),
                                       controller: _ctrupdatename,
+
                                     ),
                                     SizedBox(height: 20,),
                                     TextField(
                                       style: TextStyle(fontSize: 22, color:  Colors.blue,),
                                       decoration: InputDecoration(
                                           labelText: "Age",
-                                          border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(40)))
-
-                                      ),
+                                          border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(40)))),
                                       controller: _ctrupdateage,
                                     ),
                                     SizedBox(height: 20,),
-                                    ElevatedButton(onPressed: (){},
+                                    ElevatedButton(onPressed: (){
+                                     final user = User( id: allUsers[index].id,
+                                         name: _ctrupdatename.text, age: int.parse(_ctrupdateage.text));
+                                     updateUser(user);
+                                    },
                                         child: Container(width: double.infinity,
                                           child: Text("Mettre A jour"),))
 
