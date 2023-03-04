@@ -57,9 +57,10 @@ class _ListUsersState extends State<ListUsers> {
                                     TextField(
                                       style: TextStyle(fontSize: 22, color:  Colors.blue,),
                                       decoration: InputDecoration(
-                                        labelText: "Nom",
+                                        labelText: "Name",
                                         border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(40)))),
                                       controller: _ctrupdatename,
+
 
                                     ),
                                     SizedBox(height: 20,),
@@ -96,7 +97,25 @@ class _ListUsersState extends State<ListUsers> {
                     child: Icon(Icons.edit,size: 32, color: Colors.green,),
                   ),
                   TextButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      showDialog(context: context,
+                          builder: (context)=>AlertDialog(
+                            title: Text("Voulez-vous vraiment supprimer  ${allUsers[index].name}?"),
+                            actions: [
+                              ElevatedButton(onPressed:() {
+                                deleteUser(allUsers[index].id);
+                                Navigator.pop(context,"Oui");
+
+                              },
+                                  child: Text('Oui')),
+                              ElevatedButton(onPressed:() {
+                                Navigator.pop(context,"Annuler");
+                              },
+                                  child: Text('Non')),
+                            ],
+
+                          ));
+                    },
                     child: Icon(Icons.delete,size: 32, color: Colors.red,),
                   )
                 ],
