@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gestion_contact/model/user.model.dart';
+import 'package:gestion_contact/repository/user.repo.dart';
 
 class AddUserPage extends StatelessWidget {
   const AddUserPage({Key? key}) : super(key: key);
@@ -42,8 +43,13 @@ class AddUserPage extends StatelessWidget {
               ),
               ElevatedButton(
                   onPressed: () {
+
                     final user =
                         User(name: _ctrname.text, age: int.parse(_ctrage.text));
+                    addUser(user);
+
+                    _ctrname.text ="";
+                    _ctrage.text = "";
                   },
                   child: Container(
                     width: double.infinity,
